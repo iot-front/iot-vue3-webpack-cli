@@ -1,0 +1,92 @@
+{
+  "name": "iot-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
+    "serve:prod": "cross-env NODE_ENV=development dotenv -e .env.prod.serve vue-cli-service serve",
+    "build:prod": "cross-env NODE_ENV=production  dotenv -e .env.prod.build vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "element-plus": "^1.1.0-beta.9",
+    "iot-axios": "^1.0.17",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.0",
+    "vue": "^3.2.19",
+    "vue-class-component": "^8.0.0-0",
+    "vue-i18n": "^9.0.0-beta.16",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "4.0.12",
+    "vuex": "4.0.2",
+    "vuex-persistedstate": "^4.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@types/js-cookie": "^2.2.6",
+    "@types/lodash": "^4.14.167",
+    "@types/node": "^14.14.11",
+    "@types/nprogress": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.12",
+    "@vue/cli-plugin-typescript": "~4.5.12",
+    "@vue/cli-plugin-vuex": "~4.5.12",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "commitizen": "^4.2.3",
+    "compression-webpack-plugin": "^6.1.1",
+    "cross-env": "^7.0.3",
+    "cz-customizable": "^6.3.0",
+    "dotenv-cli": "^4.0.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "gitmoji-cli": "^3.3.1",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^2.0.0",
+    "style-resources-loader": "^1.4.1",
+    "terser-webpack-plugin": "^4.2.3",
+    "typescript": "~4.1.5",
+    "vue-cli-plugin-style-resources-loader": "^0.1.4",
+    "webpack-parallel-uglify-plugin": "^1.1.4",
+    "webpackbar": "^5.0.0-3"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "prettier --config .prettierrc.json --write",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  }
+}
